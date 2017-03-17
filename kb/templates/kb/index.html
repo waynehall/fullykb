@@ -1,0 +1,126 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html lang="en" ng-app="app">
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link href="{% static 'medals/site.css' %}" rel="stylesheet">
+</head>
+{% verbatim %}
+<body ng-controller="AppController">
+<div class="container">
+    <div class="row">
+        
+        <div class="col-sm-3 no-float" id="menu">
+            <div class="logo">
+            <img src="{% static 'medals/logo-fully.png' %}"> 
+            <h2> Knowledge-Base </h2>
+            <br>
+            </div>
+            <ul class="list-group menu-list">
+                <li class="list-group-item menu-item"><span class="h3 menuparent" ng-init="trainingMenu = 0" ng-click="trainingMenu = !trainingMenu; menuSelect=1"> Training Manuals</span>
+                    <div class="menufade" ng-show="trainingMenu">
+                        <ul class="list-group">
+                            <li class="list-group-item menu-item"><a href="https://docs.google.com/a/fully.com/document/d/1ePgncvvP0AM2Tsc0TJwy4RNn61PQYd6knqjURRL5o90/edit?usp=sharing">Magento Training Manual</a></li>
+                            <li class="list-group-item menu-item"><a href="https://docs.google.com/a/fully.com/document/d/10aylToz9MRdcoJ0quhCuHW6vMoI7YvjlsNFJim7vPzw/edit?usp=sharing">Netsuite Training Manual</a></li>
+                            <li class="list-group-item menu-item"><a href="#"><span ng-click="menuSelect = 5">Phone Guides</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="list-group-item menu-item"><span class="h3 menuparent" ng-init="formMenu = 0" ng-click="formMenu = !formMenu; menuSelect=2"> Forms</span>
+                    <div class="menufade" ng-show="formMenu">
+                        <ul class="list-group menu-list">
+                            <li class="list-group-item menu-item"> <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmFcrV2enCqy0ZVm-7Dr-6ueW9BhIe5fumu1idU3yJ9bpwoQ/viewform">Venture Card Form</a></li>
+                            <li class="list-group-item menu-item"> <a href="https://docs.google.com/a/fully.com/forms/d/e/1FAIpQLSc2-u0fKdhQRrs06ttxs2-nsbAqoJmx7QIyV5zmYfHUwO5Dvg/viewform?c=0&w=1"> Wellness Form</a></li>
+                            <li class="list-group-item menu-item"> <a href="https://docs.google.com/forms/d/e/1FAIpQLScxMYwIc59GET5UdrwcK9IGwxGcCweo12RLjEz0Bnt44EG2xg/viewform"> Reimbursement Form</a></li>
+                            <li class="list-group-item menu-item"> <a href="https://docs.google.com/a/fully.com/forms/d/e/1FAIpQLSdEPiVu9_fuk5wRT0SFr3zo4J5q3B0z3_JtdekpzhBENR4htg/viewform?c=0&w=1">Showroom Visitor Log</a></li>
+                        </ul>
+                    </div>
+                </li> 
+                <li class="list-group-item menu-item"><span class="h3 menuparent" ng-init="referenceMenu = 0" ng-click="referenceMenu = !referenceMenu; menuSelect=6"> Reference</span>
+                    <div class="menufade" ng-show="referenceMenu">
+                        <ul class="list-group">
+                            <li class="list-group-item menu-item"><a href="#"><span ng-click="menuSelect = 7">Backorder</a></span></li>
+                            <li class="list-group-item menu-item"><a href="#"><span ng-click="menuSelect = 8">Product Manuals</a></span></li>
+                        </ul>
+                    </div>
+                </li>     
+                <li class="list-group-item menu-item"><span class="h3 menuparent" ng-click="menuSelect = 3"> FAQ</span></li>
+                <li class="list-group-item menu-item"><span class="h3 menuparent" ng-click="menuSelect = 4"> Directory</span></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 no-float" id="content" ng-init="menuSelect=0">
+            <div ng-show="menuSelect == 0" >
+                <h3> Welcome to the Fully Knowledge-Base</h3>
+                <p>Users</p>
+                 <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="user in users">
+                            <p class="">  <span class="type-span">{{ user.name }} </span></span>
+                        </li>
+                    </ul>
+                <p>  Here you will find commonly shared information, manuals, tips, links, and directory.  It will be your source for all things Fully.</p>
+            </div>
+            <div class="" ng-show="menuSelect == 1" > <h3>We use a lot of systems and software.  Here, you'll find some information on how to use them.</h3></div>
+            <div class="" ng-show="menuSelect == 2" > 
+                <h3>Forms</h3>
+                <br>
+                <br>
+                <h4>Venture Card Form</h4>
+                <p> When making purchases with your Venture Card, please fill out this form so accounting can authorize your purchase.</p>
+                <br>
+                <h4>Wellness Reimbursement Form</h4>
+                <p>Each week you have an allocated $75 to spend on wellness.  This means Gym Memberships, massages, and most things that promote a healthy lifestyle.  If you have questions about whether your preferred activity qualifies for wellness reimbursement, please contact Emily.</p>
+            </div>
+            <div class="" ng-show="menuSelect == 3" > 
+                <h3>How do I do the thing?! (Frequently Asked Questions)</h3>
+                <br>
+                <br>
+                <h4>How do I Fully Lunch?</h4>
+                </p>Every Thursday is Fully Lunch day. That means lunch is on us so long as you aren't working from home! Venture card purchases for lunch need to be followed up by filling out the proper form. If you have any questions, please direct them to our resident lunch enthusiast Nate.</p>
+                <h4> I FORGOT MY PASSWORD!</h4>
+                <p> Slack, email, or call Wayne.</p>
+                <h4>How do I get fabulous hair?</h4>
+                <p> Slack, email, or call Patrick</p>
+            
+            </div>
+            <div class="" ng-show="menuSelect == 4" ><h3>PLACE HOLDER FOR DIRECTORY!!!</h3></div>
+            <div class="" ng-show="menuSelect == 5" >
+                <h3>Guides for 8x8 phone systems</h3>
+                <br>
+                <h4> <a href="https://drive.google.com/open?id=0B5uuMThXWoi_N1dFczFrTllxc2M"> Polycom VVX 300 Manual</a></h4>
+                <p> This guide will help you navigate your complex Polycom phone System. </p>
+                <h4> <a href="https://drive.google.com/open?id=0B5uuMThXWoi_T3pzSktuM2RzbGs"> 8x8 Voicemail Guide</a></h4>
+                <p>  Rabbid dog swarm in Portland?  Need to change Fully's voicemail because all employees now have Rabbies? This pdf has you covered!</p>
+                <h4> <a href="https://drive.google.com/open?id=0B5uuMThXWoi_ekFoTjhxaEJJYVU"> 8x8 Desktop Client Manual</a></h4>
+                <p> Got a cold and need to work from home?  The 8x8 Desktop Client will unfortunately let you do that.</p>
+                <h4> <a href="https://www.youtube.com/playlist?list=PLgV2N-OUBAf0-71P6rSukkq8jCwGQbMIs"> 8x8 Video Guides</a></h4>
+                <p> Don't do reading? 8x8 has you covered for all of these issues and more with their video tutorials!</p>
+            </div>
+            <div class="" ng-show="menuSelect == 7" >
+                    <h3> Backorder and Out of Stock status page</h3>
+                    <h4> Backorders </h4>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="backorder in backorders">
+                            <p class="">  <span class="type-span"><span class="label label-primary"ng-if="backorder.gsx$type.$t === 'Backorder'">{{ backorder.gsx$type.$t }} </span><span class="label label-danger"ng-if="product.gsx$type.$t === 'Out of Stock'">{{ product.gsx$type.$t }} </span></span>
+                            <span class="h4 type-span">{{ backorder.gsx$product.$t }}</span>  <span  class="h5">Estimated restock date: {{ backorder.gsx$eta.$t }}</span></p>
+
+                        </li>
+                    </ul>
+                    <h4> Out of Stock </h4>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="oos in outofstocks">
+                            <p class="">  <span class="type-span"><span class="label label-danger">{{ oos.gsx$type.$t }} </span></span>
+                            <span class="h4 type-span">{{ oos.gsx$product.$t }}</span></p>
+
+                        </li>
+                    </ul>
+    
+    </div>
+</div>
+{% endverbatim %}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-animate.min.js"></script>
+<script type="text/javascript" src="{% static 'medals/site.js' %}"></script>
+</body>
+</html>

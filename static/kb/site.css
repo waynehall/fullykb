@@ -1,0 +1,91 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+html,body,.container
+{
+    height:100%;
+}
+.container
+{
+    display:table;
+    width: 100%;
+    padding: 0 0 0 0;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.row
+{
+    height: 100%;
+    display: table-row;
+}
+@media (min-width: 792px) {
+  .row .no-float {
+      display: table-cell;
+      float: none;
+  }
+}
+.menu-list{
+    background: darkgray;
+    color: white;
+    border-radius: 10px;
+    padding: 1px 1px 1px 1px;
+}
+.menu-item{
+    background: darkgray;
+    border: none;
+    padding: 5px 1px 1px 15px;
+}
+.menu-item:hover{
+    color: #ffd524;
+    transition: all linear 0.2s;
+}
+#menu{
+    background: darkgray;
+    padding-top: 20px;
+    padding-left: 15px;
+}
+.logo{
+    margin-left: 15px;
+}
+.menuparent:hover{
+    color: #ffd524;
+    transition: all linear 0.2s;
+    cursor: pointer;
+}
+
+.menufade {
+    transition: all linear 0.3s;
+}
+.menufade.ng-hide {
+    opacity: 0;
+}
+#menu a:link {
+    text-decoration: none;
+    color: white;
+}
+
+#menu a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+#menu a:hover {
+    text-decoration: none;
+    color: #ffd524;
+    transition: all linear 0.2s;
+}
+
+#menu a:active {
+    text-decoration: none;
+    color: white;
+}
+#content{
+    background: lightgray;
+    border-style: solid;
+    border-width: 0px 0px 0px 2px;
+    border-color: white;
+}
+.type-span{
+    margin-right: 20px;
+}

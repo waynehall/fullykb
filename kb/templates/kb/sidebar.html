@@ -1,0 +1,40 @@
+{% load staticfiles %}
+
+<div class="col-sm-3 no-float" id="menu">
+            <div class="logo">
+            <img src="{% static 'kb/logo-fully.png' %}"> 
+            <h2> Knowledge-Base </h2>
+            <br>
+            </div>
+            <ul class="list-group menu-list">
+                <li class="list-group-item menu-item"><span class="h3 menuparent" ng-init="trainingMenu = 0" ng-click="trainingMenu = !trainingMenu; menuSelect=1"> Training Manuals</span>
+                    <div class="menufade" ng-show="trainingMenu">
+                        <ul class="list-group">
+                            <li class="list-group-item menu-item"><a href="https://docs.google.com/a/fully.com/document/d/1ePgncvvP0AM2Tsc0TJwy4RNn61PQYd6knqjURRL5o90/edit?usp=sharing">Magento Training Manual</a></li>
+                            <li class="list-group-item menu-item"><a href="https://docs.google.com/a/fully.com/document/d/10aylToz9MRdcoJ0quhCuHW6vMoI7YvjlsNFJim7vPzw/edit?usp=sharing">Netsuite Training Manual</a></li>
+                            <li class="list-group-item menu-item"><a href="#"><span ng-click="menuSelect = 5">Phone Guides</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="list-group-item menu-item"><span class="h3 menuparent" ng-init="formMenu = 0" ng-click="formMenu = !formMenu; menuSelect=2"> Forms</span>
+                    <div class="menufade" ng-show="formMenu">
+                        <ul class="list-group menu-list">
+                            <li class="list-group-item menu-item"> <a href="https://docs.google.com/forms/d/e/1FAIpQLSfmFcrV2enCqy0ZVm-7Dr-6ueW9BhIe5fumu1idU3yJ9bpwoQ/viewform">Venture Card Form</a></li>
+                            <li class="list-group-item menu-item"> <a href="https://docs.google.com/a/fully.com/forms/d/e/1FAIpQLSc2-u0fKdhQRrs06ttxs2-nsbAqoJmx7QIyV5zmYfHUwO5Dvg/viewform?c=0&w=1"> Wellness Form</a></li>
+                            <li class="list-group-item menu-item"> <a href="https://docs.google.com/forms/d/e/1FAIpQLScxMYwIc59GET5UdrwcK9IGwxGcCweo12RLjEz0Bnt44EG2xg/viewform"> Reimbursement Form</a></li>
+                            <li class="list-group-item menu-item"> <a href="https://docs.google.com/a/fully.com/forms/d/e/1FAIpQLSdEPiVu9_fuk5wRT0SFr3zo4J5q3B0z3_JtdekpzhBENR4htg/viewform?c=0&w=1">Showroom Visitor Log</a></li>
+                        </ul>
+                    </div>
+                </li> 
+                <li class="list-group-item menu-item"><span class="h3 menuparent" ng-init="referenceMenu = 0" ng-click="referenceMenu = !referenceMenu; menuSelect=6"> Reference</span>
+                    <div class="menufade" ng-show="referenceMenu">
+                        <ul class="list-group">
+                            <li class="list-group-item menu-item"><a href="#"><span ng-click="menuSelect = 7">Backorder</a></span></li>
+                            <li class="list-group-item menu-item"><a href="#"><span ng-click="menuSelect = 8">Product Manuals</a></span></li>
+                        </ul>
+                    </div>
+                </li>     
+                <li class="list-group-item menu-item"><span class="h3 menuparent" ng-click="menuSelect = 3"> FAQ</span></li>
+                <li class="list-group-item menu-item"><span class="h3 menuparent" ng-click="menuSelect = 4"> Directory</span></li>
+            </ul>
+        </div>
