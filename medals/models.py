@@ -7,7 +7,7 @@ class FullyUser(models.Model):
     #email = models.EmailField(max_length=254)
 
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 """

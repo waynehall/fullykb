@@ -89,3 +89,7 @@ html,body,.container
 .type-span{
     margin-right: 20px;
 }
+.photo{
+    height: 100px;
+    width: 100px;
+}
