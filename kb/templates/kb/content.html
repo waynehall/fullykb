@@ -1,91 +1,103 @@
-{% extends 'kb/base.html' %}
+{% extends 'kb/base.html' %} {% block content %} {% verbatim %}
+<div id="content" ng-init="menuSelect=0">
+    <div ng-show="menuSelect == 0">
+        <h3> Welcome to the Fully Knowledge-Base</h3>
+        <p>Users</p>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="user in users">
+                <p class=""> <span class="type-span">{{ user.name }} </span></span>
+            </li>
+        </ul>
+        <p> Here you will find commonly shared information, manuals, tips, links, and directory. It will be your source for all
+            things Fully.</p>
+    </div>
+    <div class="" ng-show="menuSelect == 1">
+        <h3>We use a lot of systems and software. Here, you'll find some information on how to use them.</h3>
+    </div>
+    <div class="" ng-show="menuSelect == 2">
+        <h3>Forms</h3>
+        <br>
+        <br>
+        <h4>Venture Card Form</h4>
+        <p> When making purchases with your Venture Card, please fill out this form so accounting can authorize your purchase.</p>
+        <br>
+        <h4>Wellness Reimbursement Form</h4>
+        <p>Each week you have an allocated $75 to spend on wellness. This means Gym Memberships, massages, and most things that
+            promote a healthy lifestyle. If you have questions about whether your preferred activity qualifies for wellness
+            reimbursement, please contact Emily.</p>
+    </div>
+    <div class="" ng-show="menuSelect == 3">
+        <h3>How do I do the thing?! (Frequently Asked Questions)</h3>
+        <br>
+        <br>
+        <h4>How do I Fully Lunch?</h4>
+        </p>Every Thursday is Fully Lunch day. That means lunch is on us so long as you aren't working from home! Venture card
+        purchases for lunch need to be followed up by filling out the proper form. If you have any questions, please direct
+        them to our resident lunch enthusiast Nate.</p>
+        <h4> I FORGOT MY PASSWORD!</h4>
+        <p> Slack, email, or call Wayne.</p>
+        <h4>How do I get fabulous hair?</h4>
+        <p> Slack, email, or call Patrick</p>
 
-{% block content %}
-{% verbatim %}
-<div class="col-sm-9 no-float" id="content" ng-init="menuSelect=0">
-            <div ng-show="menuSelect == 0" >
-                <h3> Welcome to the Fully Knowledge-Base</h3>
-                <p>Users</p>
-                 <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="user in users">
-                            <p class="">  <span class="type-span">{{ user.name }} </span></span>
-                        </li>
-                    </ul>
-                <p>  Here you will find commonly shared information, manuals, tips, links, and directory.  It will be your source for all things Fully.</p>
-            </div>
-            <div class="" ng-show="menuSelect == 1" > <h3>We use a lot of systems and software.  Here, you'll find some information on how to use them.</h3></div>
-            <div class="" ng-show="menuSelect == 2" > 
-                <h3>Forms</h3>
-                <br>
-                <br>
-                <h4>Venture Card Form</h4>
-                <p> When making purchases with your Venture Card, please fill out this form so accounting can authorize your purchase.</p>
-                <br>
-                <h4>Wellness Reimbursement Form</h4>
-                <p>Each week you have an allocated $75 to spend on wellness.  This means Gym Memberships, massages, and most things that promote a healthy lifestyle.  If you have questions about whether your preferred activity qualifies for wellness reimbursement, please contact Emily.</p>
-            </div>
-            <div class="" ng-show="menuSelect == 3" > 
-                <h3>How do I do the thing?! (Frequently Asked Questions)</h3>
-                <br>
-                <br>
-                <h4>How do I Fully Lunch?</h4>
-                </p>Every Thursday is Fully Lunch day. That means lunch is on us so long as you aren't working from home! Venture card purchases for lunch need to be followed up by filling out the proper form. If you have any questions, please direct them to our resident lunch enthusiast Nate.</p>
-                <h4> I FORGOT MY PASSWORD!</h4>
-                <p> Slack, email, or call Wayne.</p>
-                <h4>How do I get fabulous hair?</h4>
-                <p> Slack, email, or call Patrick</p>
-            
-            </div>
-            <div class="" ng-show="menuSelect == 4" >
-                {% endverbatim %}
-                {% for user in all_profiles %}
-                <div class="container">
-                <div class="row">
-                    <div class="col-sm-4" style="background: url('/images/{{ user.profile.photo }}')"> 
-                         {{ user.username}}
-                         <img class="photo" src="/images/{{ user.profile.photo }}">
-                    </div>
-                    <div class="col-sm-8">
-                        {{ user.profile.slackName }}
-                    </div>
-                </div>
-                </div>
-                {% endfor %}
-                
-                <h3>PLACE HOLDER FOR DIRECTORY!!!</h3>
-            </div>
-                {% verbatim %}
-            <div class="" ng-show="menuSelect == 5" >
-                <h3>Guides for 8x8 phone systems</h3>
-                <br>
-                <h4> <a href="https://drive.google.com/open?id=0B5uuMThXWoi_N1dFczFrTllxc2M"> Polycom VVX 300 Manual</a></h4>
-                <p> This guide will help you navigate your complex Polycom phone System. </p>
-                <h4> <a href="https://drive.google.com/open?id=0B5uuMThXWoi_T3pzSktuM2RzbGs"> 8x8 Voicemail Guide</a></h4>
-                <p>  Rabbid dog swarm in Portland?  Need to change Fully's voicemail because all employees now have Rabbies? This pdf has you covered!</p>
-                <h4> <a href="https://drive.google.com/open?id=0B5uuMThXWoi_ekFoTjhxaEJJYVU"> 8x8 Desktop Client Manual</a></h4>
-                <p> Got a cold and need to work from home?  The 8x8 Desktop Client will unfortunately let you do that.</p>
-                <h4> <a href="https://www.youtube.com/playlist?list=PLgV2N-OUBAf0-71P6rSukkq8jCwGQbMIs"> 8x8 Video Guides</a></h4>
-                <p> Don't do reading? 8x8 has you covered for all of these issues and more with their video tutorials!</p>
-            </div>
-            <div class="" ng-show="menuSelect == 7" >
-                    <h3> Backorder and Out of Stock status page</h3>
-                    <h4> Backorders </h4>
-                    <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="backorder in backorders">
-                            <p class="">  <span class="type-span"><span class="label label-primary"ng-if="backorder.gsx$type.$t === 'Backorder'">{{ backorder.gsx$type.$t }} </span><span class="label label-danger"ng-if="product.gsx$type.$t === 'Out of Stock'">{{ product.gsx$type.$t }} </span></span>
-                            <span class="h4 type-span">{{ backorder.gsx$product.$t }}</span>  <span  class="h5">Estimated restock date: {{ backorder.gsx$eta.$t }}</span></p>
-
-                        </li>
-                    </ul>
-                    <h4> Out of Stock </h4>
-                    <ul class="list-group">
-                        <li class="list-group-item" ng-repeat="oos in outofstocks">
-                            <p class="">  <span class="type-span"><span class="label label-danger">{{ oos.gsx$type.$t }} </span></span>
-                            <span class="h4 type-span">{{ oos.gsx$product.$t }}</span></p>
-
-                        </li>
-                    </ul>
-            </div>
-        </div>
+    </div>
+    <div class="" ng-show="menuSelect == 4">
+        <div id="content-flex">
         {% endverbatim %}
-    {% endblock %}
+            {% for user in all_profiles %}
+
+            <div class="flex-card">
+                <div class="flex-card-photo">
+                    <img src="/images/{{ user.profile.photo }}" class="profile-image" width="200" height="200"> 
+                </div>
+                <div class="flex-card-details">
+                       <span class="profile-name"> <b>{{ user.first_name }} {{user.last_name}} </b></span>
+                    <p> <span class="profile-categories"> Title: </span>{{ user.profile.jobTitle}}</p>
+                    <p> <span class="profile-categories"> Department:</span> {{user.profile.department}}</p>
+                    <p> <span class="profile-categories"> Reports To: </span>Placeholder</p>
+                    <p> <span class="profile-categories">Hire Date:</span> {{user.profile.hireDate}}</p>
+                    <p> <span class="profile-categories">Email:</span> {{user.email}}</p>
+                    <p> <span class="profile-categories">Slack:</span> {{user.profile.slackName}}</p>
+                    <p> <span class="profile-categories">Phone:</span> {{user.profile.phoneNum}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% verbatim %}
+    <div class="" ng-show="menuSelect == 5">
+        <h3>Guides for 8x8 phone systems</h3>
+        <br>
+        <h4> <a href="https://drive.google.com/open?id=0B5uuMThXWoi_N1dFczFrTllxc2M"> Polycom VVX 300 Manual</a></h4>
+        <p> This guide will help you navigate your complex Polycom phone System. </p>
+        <h4> <a href="https://drive.google.com/open?id=0B5uuMThXWoi_T3pzSktuM2RzbGs"> 8x8 Voicemail Guide</a></h4>
+        <p> Rabbid dog swarm in Portland? Need to change Fully's voicemail because all employees now have Rabbies? This pdf has
+            you covered!</p>
+        <h4> <a href="https://drive.google.com/open?id=0B5uuMThXWoi_ekFoTjhxaEJJYVU"> 8x8 Desktop Client Manual</a></h4>
+        <p> Got a cold and need to work from home? The 8x8 Desktop Client will unfortunately let you do that.</p>
+        <h4> <a href="https://www.youtube.com/playlist?list=PLgV2N-OUBAf0-71P6rSukkq8jCwGQbMIs"> 8x8 Video Guides</a></h4>
+        <p> Don't do reading? 8x8 has you covered for all of these issues and more with their video tutorials!</p>
+    </div>
+    <div class="" ng-show="menuSelect == 7">
+        <h3> Backorder and Out of Stock status page</h3>
+        <h4> Backorders </h4>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="backorder in backorders">
+                <p class=""> <span class="type-span"><span class="label label-primary"ng-if="backorder.gsx$type.$t === 'Backorder'">{{ backorder.gsx$type.$t }} </span>
+                    <span
+                        class="label label-danger" ng-if="product.gsx$type.$t === 'Out of Stock'">{{ product.gsx$type.$t }} </span>
+                        </span>
+                        <span class="h4 type-span">{{ backorder.gsx$product.$t }}</span> <span class="h5">Estimated restock date: {{ backorder.gsx$eta.$t }}</span></p>
+
+            </li>
+        </ul>
+        <h4> Out of Stock </h4>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="oos in outofstocks">
+                <p class=""> <span class="type-span"><span class="label label-danger">{{ oos.gsx$type.$t }} </span></span>
+                    <span class="h4 type-span">{{ oos.gsx$product.$t }}</span></p>
+
+            </li>
+        </ul>
+    </div>
+</div>
+{% endverbatim %} {% endblock %}
